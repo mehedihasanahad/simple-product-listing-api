@@ -46,3 +46,9 @@ Please, run docker before execute below command:
 - http://localhost:8000/api/documentation
 
 - http://localhost:8000/docs?api-docs.json
+
+
+
+## Design explanation are given below as per requirement:
+
+For this project, I followed REST API principles to ensure a standardized approach. I have implemented the Repository Design Pattern to separate business logic from data access, promoting cleaner, more maintainable code. This pattern enhances modularity, making the application easier to test and extend, while also maintaining a clear structure that can easily accommodate future changes.
