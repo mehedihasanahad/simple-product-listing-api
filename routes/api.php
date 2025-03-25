@@ -14,4 +14,4 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::apiResource('products', ProductController::class);
+Route::apiResource('v1/products', ProductController::class);
