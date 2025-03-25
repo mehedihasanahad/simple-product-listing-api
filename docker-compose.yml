@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+      context: ./       # Path to the folder containing the Dockerfile
+    container_name: laravel-app
+    volumes:
+      - ./:/var/www/html  # Link Laravel project to container
+    ports:
+      - "8000:80"          # Expose port 80 on container to port 8000 on host
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public
+    depends_on:
+      - mysql
+    # volumes:
+    #   - ./storage:/var/www/html/storage # Persist storage files locally
+    restart: always
+
+  mysql:
+    image: mysql:8.0
+    container_name: laravel-mysql
+    restart: always
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root_secret
+    ports:
+      - "3306:3306"
+
+volumes:
+  mysql-data:
